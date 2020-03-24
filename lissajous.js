@@ -20,6 +20,9 @@ function setup() {
 let angle = 0;
 
 function draw() {
+
+  let ran1 = Math.floor(Math.random()*255);
+  let ran2 = Math.floor(Math.random()*255);
   background(0);
 
   for (let i=0; i<n;i++) {
@@ -44,10 +47,11 @@ function draw() {
 
     array_x[i].push(x1);
 
-    // if (i===0){
-    //   array_x.push(x1);
-    // }
+    if (array_x[i].length > 650) {
+      array_x[i].shift();
+    }
   }
+
 
   for (let i = 0; i < n; i++) {
     stroke(255);
@@ -66,19 +70,20 @@ function draw() {
 
     array_y[i].push(y2);
 
-    // if (i === 0) {
-    //   array_y.push(y2);
-    // }
+    if (array_y[i].length > 650) {
+      array_y[i].shift();
+    }
+
   }
 
-
+  // will change the algorithm for this later instead of 3 loops, was in a rush;
   for (let i = 0; i < array_x.length; i++) {
     for (let j = 0; j < array_x.length; j++) {
       push();
       beginShape()
       for (k = 1; k < array_x[i].length; k++) {
-        stroke(255);
-        strokeWeight(2);
+        stroke(100, ran1, ran2);
+        strokeWeight(1);
         noFill(255);
         vertex(array_x[i][k], array_y[j][k]);
       }
@@ -87,16 +92,6 @@ function draw() {
     }
   }
 
-  // push();
-  // beginShape()
-  //   for (let k = 1; k < array_x.length; k++) {
-  //     stroke(255);
-  //     strokeWeight(2);
-  //     noFill(255);
-  //     vertex(array_x[0][k], array_y[0][k]);
-  //   }
-  // endShape()
-  // pop();
 
    angle += 0.01;
 }
