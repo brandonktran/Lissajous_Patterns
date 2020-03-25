@@ -1,4 +1,4 @@
-let d = 80;
+let d = 60;
 let width = 900;
 // let n = width/d;
 let height = 900;
@@ -82,7 +82,7 @@ function draw() {
       push();
       beginShape()
       for (k = 1; k < array_x[i].length; k++) {
-        stroke(100, ran1, ran2);
+        stroke(255, 215, 0);
         strokeWeight(1);
         noFill(255);
         vertex(array_x[i][k], array_y[j][k]);
